@@ -243,6 +243,6 @@ return [
     //FastAdmin配置
     'fastadmin'              => [
         'version'   => '1.0.0.20170915_beta',
-        'api_url'   => 'http://api.fastadmin.net',
+        'api_url'   => '',
     ],
 ];
