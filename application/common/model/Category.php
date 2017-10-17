@@ -18,7 +18,6 @@ class Category Extends Model
     // 追加属性
     protected $append = [
         'type_text',
-        'flag_text',
     ];
 
     /**
@@ -42,18 +41,18 @@ class Category Extends Model
         return isset($list[$value]) ? $list[$value] : '';
     }
 
-    public function getFlagList()
-    {
-        return ['hot' => __('Hot'), 'index' => __('Index'), 'recommend' => __('Recommend')];
-    }
+//    public function getFlagList()
+//    {
+//        return ['hot' => __('Hot'), 'index' => __('Index'), 'recommend' => __('Recommend')];
+//    }
 
-    public function getFlagTextAttr($value, $data)
-    {
-        $value = $value ? $value : $data['flag'];
-        $valueArr = explode(',', $value);
-        $list = $this->getFlagList();
-        return implode(',', array_intersect_key($list, array_flip($valueArr)));
-    }
+//    public function getFlagTextAttr($value, $data)
+//    {
+//        $value = $value ? $value : $data['flag'];
+//        $valueArr = explode(',', $value);
+//        $list = $this->getFlagList();
+//        return implode(',', array_intersect_key($list, array_flip($valueArr)));
+//    }
 
     /**
      * 读取分类列表
