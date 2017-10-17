@@ -18,6 +18,7 @@ class Category Extends Model
     // 追加属性
     protected $append = [
         'type_text',
+        //'flag_text',
     ];
 
     /**
