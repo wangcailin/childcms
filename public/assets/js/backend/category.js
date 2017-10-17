@@ -22,20 +22,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 escape: false,
                 pk: 'id',
-                sortName: 'weigh',
+                sortName: 'listorder',
                 pagination: false,
                 commonSearch: false,
                 columns: [
                     [
                         {checkbox: true},
+                        {field: 'listorder', title: __('Listorder')},
                         {field: 'id', title: __('Id')},
-                        {field: 'type', title: __('Type')},
                         {field: 'name', title: __('Name'), align: 'left'},
-                        {field: 'nickname', title: __('Nickname')},
-                        {field: 'flag', title: __('Flag'), operate: false, formatter: Table.api.formatter.flag},
+                        {field: 'modelid', title: __('Model'), align: 'left'},
                         {field: 'image', title: __('Image'), operate: false, formatter: Table.api.formatter.image},
-                        {field: 'weigh', title: __('Weigh')},
-                        {field: 'status', title: __('Status'), operate: false, formatter: Table.api.formatter.status},
+                        {field: 'ismenu', title: __('Status'), operate: false, formatter: Table.api.formatter.status},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
