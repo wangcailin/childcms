@@ -15,9 +15,11 @@
         <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Model')}:</label>
         <div class="col-xs-12 col-sm-8">
             <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[modelid]">
-                {foreach name="typeList" item="vo"}
-                <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
-                {/foreach}
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <!--{foreach name="typeList" item="vo"}-->
+                <!--<option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>-->
+                <!--{/foreach}-->
             </select>
 
         </div>
