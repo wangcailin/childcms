@@ -3,6 +3,7 @@
 namespace app\admin\model;
 
 use think\Model;
+use think\Db;
 
 class Models extends Model
 {
@@ -35,6 +36,23 @@ class Models extends Model
     protected function setAddtimeAttr($value)
     {
         return $value && !is_numeric($value) ? strtotime($value) : $value;
+    }
+
+    /**
+     * 添加模型
+     */
+    public function addModels($data)
+    {
+        $row = [
+            'name'      => $data['name'],
+            'tablename' => $data['tablename'],
+            'addtime'   => time(),
+            'disabled'  => $data['disabled'],
+            'sort'      => $data['sort']
+        ];
+        $this->save($row);
+
+        return $modelid = $this->modelid;
     }
 
 
