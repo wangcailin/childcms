@@ -131,7 +131,7 @@ return [
     'General'                                               => '常规管理',
     'Category'                                              => '栏目管理',
     'Module'                                                => '模块管理',
-    'Model'                                                 => '模型管理',
+    'Models'                                                 => '模型管理',
     'Addon'                                                 => '插件管理',
     'Auth'                                                  => '权限管理',
     'Config'                                                => '系统配置',
