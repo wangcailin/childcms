@@ -4,7 +4,6 @@ namespace app\admin\model;
 
 use think\Model;
 use think\Db;
-use think\Config;
 
 class Category extends Model
 {
@@ -32,9 +31,9 @@ class Category extends Model
 
     public function getCategoyModels()
     {
-        $result = Db::table(Config::get('database.prefix').$this->name)
+        $result = Db::table(config('database.prefix').$this->name)
             ->alias('a')
-            ->join(Config::get('database.prefix').'models b', 'a.modelid = b.modelid', 'LEFT')
+            ->join(config('database.prefix').'models b', 'a.modelid = b.modelid', 'LEFT')
             ->field('a.*, b.name as modelid')
             ->order('listorder desc,id desc')
             ->select();

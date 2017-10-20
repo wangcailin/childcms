@@ -3,6 +3,7 @@
 namespace app\common\model;
 
 use think\Model;
+use think\Db;
 
 /**
  * 分类模型
@@ -56,6 +57,18 @@ class Category Extends Model
 //    }
 
     /**
+     * 获取模型列表
+     */
+    public static function getModelList()
+    {
+        $modelList = Db::table(config('database.prefix').'models')
+                        ->field('modelid, name')
+                        ->where('disabled', '1')
+                        ->select();
+        return $modelList;
+    }
+
+    /**
      * 读取分类列表
      * @param string $type 指定类型
      * @param string $status 指定状态
@@ -72,7 +85,7 @@ class Category Extends Model
                     {
                         $query->where('status', '=', $status);
                     }
-                })->order('weigh', 'desc')->select())->toArray();
+                })->order('id', 'desc')->select())->toArray();
         return $list;
     }
 

@@ -1,5 +1,16 @@
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
-
+    <div class="form-group">
+        <div class="form-group">
+            <label for="c-modelid" class="control-label col-xs-12 col-sm-2">{:__('Model')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                <select id="c-modelid" data-rule="required" class="form-control selectpicker" name="row[modelid]">
+                    {foreach name="modelList" item="vo"}
+                    <option data-type="{$vo.modelid}" value="{$key}" {in name="key" value=""}selected{/in}>{$vo.name}</option>
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="form-group">
         <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -28,18 +39,6 @@
         <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="{$row.name}">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="c-flag" class="control-label col-xs-12 col-sm-2">{:__('Flag')}:</label>
-        <div class="col-xs-12 col-sm-8">
-
-            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                {foreach name="flagList" item="vo"}
-                <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>
-                {/foreach}
-            </select>
-
         </div>
     </div>
     <div class="form-group">
@@ -75,9 +74,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="c-status" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <label for="c-ismenu" class="control-label col-xs-12 col-sm-2">{:__('Ismenu')}:</label>
         <div class="col-xs-12 col-sm-8">
-            {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}
+            {:build_radios('row[ismenu]', ['1'=>__('Normal'), '0'=>__('Hidden')], $row['ismenu'])}
         </div>
     </div>
     <div class="form-group layer-footer">
