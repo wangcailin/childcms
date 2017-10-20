@@ -30,8 +30,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'listorder', title: __('Listorder')},
                         {field: 'id', title: __('Id')},
-                        {field: 'name', title: __('Name'), align: 'left'},
-                        {field: 'modelid', title: __('Model'), align: 'left'},
+                        {field: 'name', title: __('Name')},
+                        {field: 'modelid', title: __('Model')},
+                        {field: 'iteam', title: __('Iteam')},
                         {field: 'image', title: __('Image'), operate: false, formatter: Table.api.formatter.image},
                         {field: 'ismenu', title: __('Status'), operate: false, formatter: Table.api.formatter.status},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}

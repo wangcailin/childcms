@@ -4,23 +4,19 @@ namespace app\admin\model;
 
 use think\Model;
 use think\Db;
+use think\Config;
 
-class Models extends Model
+class Category extends Model
 {
     // 表名
-    protected $name = 'models';
-    
+    protected $name = 'category';
+
     // 自动写入时间戳字段
     protected $autoWriteTimestamp = false;
 
     // 定义时间戳字段名
     protected $createTime = false;
     protected $updateTime = false;
-    
-    // 追加属性
-    protected $append = [
-        'addtime_text'
-    ];
 
 
     public function getAddtimeTextAttr($value, $data)
@@ -34,22 +30,14 @@ class Models extends Model
         return $value && !is_numeric($value) ? strtotime($value) : $value;
     }
 
-    /**
-     * 添加模型
-     */
-    public function addModels($data)
+    public function getCategoyModels()
     {
-        $row = [
-            'name'      => $data['name'],
-            'tablename' => $data['tablename'],
-            'addtime'   => time(),
-            'disabled'  => $data['disabled'],
-            'sort'      => $data['sort']
-        ];
-        $this->save($row);
-
-        return $modelid = $this->modelid;
+        $result = Db::table(Config::get('database.prefix').$this->name)
+            ->alias('a')
+            ->join(Config::get('database.prefix').'models b', 'a.modelid = b.modelid', 'LEFT')
+            ->field('a.*, b.name as modelid')
+            ->order('listorder desc,id desc')
+            ->select();
+        return $result;
     }
-
-
 }
