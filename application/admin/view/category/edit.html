@@ -1,26 +1,22 @@
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
     <div class="form-group">
-        <div class="form-group">
-            <label for="c-modelid" class="control-label col-xs-12 col-sm-2">{:__('Model')}:</label>
-            <div class="col-xs-12 col-sm-8">
-                <select id="c-modelid" data-rule="required" class="form-control selectpicker" name="row[modelid]">
-                    {foreach name="modelList" item="vo"}
-                    <option data-type="{$vo.modelid}" value="{$key}" {in name="key" value=""}selected{/in}>{$vo.name}</option>
-                    {/foreach}
-                </select>
-            </div>
+        <label for="c-modelid" class="control-label col-xs-12 col-sm-2">{:__('Model')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-modelid" data-rule="required" class="form-control selectpicker" name="row[modelid]">
+                {foreach name="modelList" item="vo"}
+                <option value="{$vo.modelid}" {in name="key" value="$row.modelid"}selected{/in}>{$vo.name}</option>
+                {/foreach}
+            </select>
         </div>
     </div>
     <div class="form-group">
         <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
         <div class="col-xs-12 col-sm-8">
-
             <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[type]">
                 {foreach name="typeList" item="vo"}
                 <option value="{$key}" {in name="key" value="$row.type"}selected{/in}>{$vo}</option>
                 {/foreach}
             </select>
-
         </div>
     </div>
     <div class="form-group">

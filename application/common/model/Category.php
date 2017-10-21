@@ -89,4 +89,19 @@ class Category Extends Model
         return $list;
     }
 
+    /**
+     * 读取栏目关联模型数据
+     * @return false|\PDOStatement|string|\think\Collection
+     */
+    public function getCategoyModels()
+    {
+        $result = Db::table(config('database.prefix').$this->name)
+            ->alias('a')
+            ->join(config('database.prefix').'models b', 'a.modelid = b.modelid', 'LEFT')
+            ->field('a.*, b.name as modelid')
+            ->order('listorder desc,id desc')
+            ->select();
+        return $result;
+    }
+
 }
