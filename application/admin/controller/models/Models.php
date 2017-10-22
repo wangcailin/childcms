@@ -1,6 +1,6 @@
 <?php
 
-namespace app\admin\controller;
+namespace app\admin\controller\models;
 
 use app\common\controller\Backend;
 use app\admin\model\Models as ModelsModel;

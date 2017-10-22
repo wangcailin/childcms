@@ -26,7 +26,18 @@ class Field extends Backend
         $this->model = model('ModelsField');
 
     }
-    
+
+    public function index()
+    {
+        var_dump(123);die;
+        $row = $this->model->get($ids);
+        if (!$row)
+            $this->error(__('No Results were found'));
+        $adminIds = $this->getDataLimitAdminIds();
+        $this->view->assign("row", $row);
+        return $this->view->fetch();
+    }
+
     /**
      * 默认生成的控制器所继承的父类中有index/add/edit/del/multi五个方法
      * 因此在当前控制器中可不用编写增删改查的代码,如果需要自己控制这部分逻辑

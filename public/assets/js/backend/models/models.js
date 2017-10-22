@@ -5,11 +5,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 初始化表格参数配置
             Table.api.init({
                 extend: {
-                    index_url: 'models/index',
-                    add_url: 'models/add',
-                    edit_url: 'models/edit',
-                    del_url: 'models/del',
-                    multi_url: 'models/multi',
+                    index_url: 'models/models/index',
+                    add_url: 'models/models/add',
+                    edit_url: 'models/models/edit',
+                    del_url: 'models/models/del',
+                    multi_url: 'models/models/multi',
                     table: 'models',
                 }
             });
@@ -31,7 +31,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'items', title: __('Items')},
                         {field: 'disabled', title: __('Disabled')},
                         {field: 'sort', title: __('Sort')},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                        {field: 'operate', title: __('Operate'), table: table, buttons: [{name: 'detail', text: '字段管理', title: '字段管理', icon: 'fa fa-list', classname: 'btn btn-xs btn-primary addtabsit', url: 'models/field/index'}], events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
             });
