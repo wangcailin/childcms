@@ -24,17 +24,16 @@ class Field extends Backend
     {
         parent::_initialize();
         $this->model = model('ModelsField');
-
     }
 
-    public function index()
+    public function index($ids = NULL)
     {
-        var_dump(123);die;
-        $row = $this->model->get($ids);
-        if (!$row)
-            $this->error(__('No Results were found'));
-        $adminIds = $this->getDataLimitAdminIds();
-        $this->view->assign("row", $row);
+        if ($this->request->isAjax()) {
+            $list = $this->model->getModelsField($ids);
+            $total = count($list);
+            $result = array("total" => $total, "rows" => $list);
+            return json($result);
+        }
         return $this->view->fetch();
     }
 

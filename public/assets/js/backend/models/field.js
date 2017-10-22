@@ -5,7 +5,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 初始化表格参数配置
             Table.api.init({
                 extend: {
-                    index_url: 'models/field/index',
+                    index_url: window.location.href,
                     add_url: 'models/field/add',
                     edit_url: 'models/field/edit',
                     del_url: 'models/field/del',

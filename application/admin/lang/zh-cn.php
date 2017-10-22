@@ -133,6 +133,7 @@ return [
     'Category'                                              => '栏目管理',
     'Module'                                                => '模块管理',
     'Models'                                                => '模型管理',
+    'Disabled'                                              =>  '是否禁用',
     'Addon'                                                 => '插件管理',
     'Auth'                                                  => '权限管理',
     'Config'                                                => '系统配置',

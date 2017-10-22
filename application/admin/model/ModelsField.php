@@ -20,6 +20,16 @@ class ModelsField extends Model
     protected $append = [
 
     ];
+
+    /**
+     * 获取模型所有字段
+     * @param $modelid  模型id
+     * @return false|\PDOStatement|string|\think\Collection
+     */
+    public function getModelsField($modelid)
+    {
+        return $this->where('modelid', $modelid)->select();
+    }
     
 
     public function addModelsField($modelid)
